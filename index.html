@@ -38,7 +38,25 @@
     cursor: none;
   }
 
-  /* Custom cursor */
+  #ytVideoWrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* default 16:9 */
+    background: #000;
+    overflow: hidden;
+  }
+  #ytVideoWrap.is-short {
+    padding-top: min(177.78%, 80vh);
+  }
+  #ytVideoWrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+    display: block;
+  }
+
+
   .cursor {
     position: fixed;
     width: 10px;
@@ -1172,7 +1190,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
  </div>
@@ -1191,7 +1209,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
  </div>
@@ -1209,7 +1227,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube</div>
  </div>
@@ -1228,7 +1246,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
  </div>
@@ -1257,7 +1275,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
  </div>
@@ -1276,7 +1294,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
  </div>
@@ -1295,7 +1313,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
  </div>
@@ -1315,7 +1333,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
  </div>
@@ -1335,7 +1353,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
  </div>
@@ -1354,7 +1372,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
  </div>
@@ -1383,7 +1401,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
  </div>
@@ -1402,7 +1420,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
  </div>
@@ -1421,7 +1439,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
  </div>
@@ -1448,7 +1466,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube</div>
  </div>
@@ -1465,7 +1483,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube</div>
  </div>
@@ -1482,7 +1500,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube</div>
  </div>
@@ -1499,7 +1517,7 @@
  <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
  <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
  </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Reproducir video ▶</div>
+ <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
  </div>
  <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube</div>
  </div>
@@ -1526,7 +1544,7 @@
             <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
               <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
             </div>
-            <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;">Reproducir video ▶</div>
+            <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;">Ver en YouTube ↗</div>
           </div>
           <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">Short</div>
         </div>
@@ -1545,7 +1563,7 @@
             <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
               <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
             </div>
-            <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;">Reproducir video ▶</div>
+            <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;">Ver en YouTube ↗</div>
           </div>
           <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">Short</div>
         </div>
@@ -1564,7 +1582,7 @@
             <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
               <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
             </div>
-            <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;">Reproducir video ▶</div>
+            <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;">Ver en YouTube ↗</div>
           </div>
           <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">Short</div>
         </div>
@@ -1739,33 +1757,37 @@
 
 <script>
 
-  // Videos locales en Vercel
-  // Para que funcionen, sube tus .mp4 al repositorio dentro de una carpeta llamada /videos
-  // usando el mismo nombre del ID actual. Ejemplo: /videos/XO5EMBv7-M4.mp4
-  var ytModalEl = null;
+  // YouTube: play in modal with embed
   function loadYT(id, ratio) {
     var isShort = !ratio || ratio === '9/16';
-    var modal = document.getElementById('modal');
-    var wrap = document.getElementById('modalVideo');
-    var badge = document.querySelector('#modal .coming-soon-badge');
+    var modal = document.getElementById('ytModal');
+    var frame = document.getElementById('ytFrame');
+    var wrap = document.getElementById('ytVideoWrap');
+    var link = document.getElementById('ytExternalLink');
 
-    wrap.className = 'modal-video-wrap' + (isShort ? ' vertical' : '');
-    wrap.innerHTML =
-      '<video controls autoplay playsinline preload="metadata" style="width:100%;height:100%;display:block;object-fit:contain;background:#000;">' +
-      '<source src="videos/' + id + '.mp4" type="video/mp4">' +
-      'Tu navegador no puede reproducir este video.' +
-      '</video>';
+    // Set aspect ratio via class
+    wrap.classList.toggle('is-short', isShort);
 
-    document.getElementById('modalTitle').textContent = 'Proyecto de video';
-    document.getElementById('modalDesc').textContent = 'Reproducción directa desde daniediciones.vercel.app';
-    if (badge) badge.textContent = 'Video alojado en Vercel';
+    // Build embed URL with autoplay
+    frame.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
+
+    // External link fallback
+    var extUrl = isShort
+      ? 'https://www.youtube.com/shorts/' + id
+      : 'https://www.youtube.com/watch?v=' + id;
+    link.href = extUrl;
 
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-  function closeYTModal() {
-    var wrap = document.getElementById('modalVideo');
-    if (wrap) wrap.innerHTML = '';
+
+  function closeYTModal(event, force) {
+    var modal = document.getElementById('ytModal');
+    if (force || !event || event.target === modal) {
+      modal.classList.remove('open');
+      document.getElementById('ytFrame').src = '';
+      document.body.style.overflow = '';
+    }
   }
 
   // Custom cursor
@@ -1952,15 +1974,33 @@
   function closeModal(event, force) {
     if (force || (event && event.target === document.getElementById('modal'))) {
       document.getElementById('modal').classList.remove('open');
-      closeYTModal();
       document.body.style.overflow = '';
     }
   }
 
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') { closeModal(null, true); closeVSL(null, true); closeVSL2(null, true); closeVSL3(null, true); closeYTModal(); }
+    if (e.key === 'Escape') { closeModal(null, true); closeVSL(null, true); closeVSL2(null, true); closeVSL3(null, true); closeYTModal(null, true); }
   });
 </script>
+<!-- YOUTUBE MODAL -->
+<div class="modal-overlay" id="ytModal" onclick="closeYTModal(event)" style="z-index:1002;">
+  <div class="modal-box" style="max-width:980px;background:#0a0a0a;position:relative;">
+    <button class="modal-close" onclick="closeYTModal(null,true)">✕</button>
+    <div id="ytVideoWrap">
+      <iframe
+        id="ytFrame"
+        src=""
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="modal-info" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:20px 28px;">
+      <p style="font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:0.1em;">Reproduciendo en YouTube</p>
+      <a id="ytExternalLink" href="#" target="_blank" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:2px;white-space:nowrap;">Abrir en YouTube ↗</a>
+    </div>
+  </div>
+</div>
+
 <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
