@@ -1969,6 +1969,25 @@
     transition: opacity 0.15s;
   }
 
+
+  /* ─── VSL + Landing Page badge ─── */
+  .vsl-code-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 5px 12px;
+    background: rgba(91,140,255,0.08);
+    border: 1px solid rgba(91,140,255,0.25);
+    border-radius: 100px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: rgba(91,140,255,0.9);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .vsl-code-icon { font-size: 11px; }
+
 </style>
 </head>
 <body>
@@ -2128,6 +2147,7 @@
           <p>¿Qué estudié? <strong>Ingeniería Ambiental.</strong> Raro, ¿no? Lo sé. Pero no perdí mi tiempo — <em>más abajo te explico de qué manera le saco provecho a mi carrera.</em></p>
           <p>Siempre tuve una pasión desde los 16 años por la edición, por contar historias a través de videos, y siempre aprendí de manera empírica. He pasado por <strong>DaVinci, Filmora, Premiere, After Effects, CapCut</strong>… lo he probado todo. Soy de las personas que si me explicas una vez, me esforzaré por hacerlo cada vez mejor.</p>
           <p>También soy apasionado por las redes sociales y tengo mi propio proyecto de marca personal. Lo que más me diferencia es que combino el pensamiento analítico que me dejó la ingeniería — números, estadística, KPIs — con el entendimiento del sector privado y las empresas. Eso me permite editar con cabeza estratégica: no solo hago que se vea bien, entiendo <strong>por qué funciona</strong>.</p>
+          <p>Ahora, junto con la edición, <strong>la programación hace parte activa de mis estudios.</strong> Por ello, en algunos proyectos me involucro en la <em>lectura de métricas, programación y necesidades básicas</em> de los clientes o compañías — aportando una visión más completa que va más allá del video.</p>
         </div>
 
         <div class="about-highlight">
@@ -2230,6 +2250,7 @@
           <span class="video-cat-tag">Corporativa VSL</span>
           <h4 class="video-title">El Experimento Valen</h4>
           <p class="video-desc">VSL de alto impacto — storytelling de ventas, hook irresistible y narrativa que convierte.</p>
+          <div class="vsl-code-badge"><span class="vsl-code-icon">⌨️</span> VSL + Landing Page programada</div>
         </div>
       </div>
       <div class="video-card" data-cat="corporativa" onclick="openVSL2()">
@@ -2247,6 +2268,7 @@
           <span class="video-cat-tag">Corporativa VSL</span>
           <h4 class="video-title">Fluxi — Clase IA</h4>
           <p class="video-desc">VSL educativo con narrativa de autoridad, IA como protagonista y conversión masiva.</p>
+          <div class="vsl-code-badge"><span class="vsl-code-icon">⌨️</span> VSL + Landing Page programada</div>
         </div>
       </div>
       <div class="video-card" data-cat="corporativa" onclick="openVSL3()">
@@ -2264,6 +2286,7 @@
           <span class="video-cat-tag">Corporativa VSL</span>
           <h4 class="video-title">Zivo Consulting</h4>
           <p class="video-desc">VSL de autoridad financiera — narrativa de urgencia, credibilidad y conversión a asesoría.</p>
+          <div class="vsl-code-badge"><span class="vsl-code-icon">⌨️</span> VSL + Landing Page programada</div>
         </div>
       </div>
     </div>
@@ -2698,7 +2721,7 @@
   <span class="contact-label reveal">¿Trabajamos juntos?</span>
   <h2 class="contact-headline reveal">Hagamos algo<br><em>increíble.</em></h2>
   <p class="contact-sub reveal">Si llegaste hasta acá, ya sabes quién soy y cómo trabajo. Solo falta dar el primer paso.</p>
-  <a href="mailto:dani@email.com" class="contact-cta reveal">Hablemos →</a>
+  <a href="https://wa.me/573195030108?text=Hola%20Dani%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20hablar%20contigo%20%F0%9F%91%8B" target="_blank" class="contact-cta reveal">Hablemos →</a>
 </section>
 
 <!-- MACOL SECTION -->
@@ -2751,6 +2774,50 @@
   <div class="footer-name">Dani<em style="font-style:italic;color:var(--electric-coral);">.</em></div>
   <div class="footer-right">© 2025 · Editor Empírico &amp; Orgulloso · Colombia</div>
 </footer>
+
+
+<!-- VSL NOTICE TOAST -->
+<div id="vslNotice" style="
+  position:fixed;
+  top:50%;left:50%;
+  transform:translate(-50%,-60%) scale(0.9);
+  z-index:10000;
+  background:#141414;
+  border:1px solid rgba(91,140,255,0.3);
+  border-left:3px solid #5B8CFF;
+  border-radius:6px;
+  padding:28px 36px;
+  max-width:420px;
+  width:90%;
+  text-align:center;
+  box-shadow:0 24px 80px rgba(0,0,0,0.8);
+  opacity:0;
+  pointer-events:none;
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  backdrop-filter:blur(12px);
+">
+  <div style="font-size:28px;margin-bottom:12px;">⌨️</div>
+  <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:rgba(255,255,255,0.95);line-height:1.5;margin-bottom:8px;">
+    Este video corporativo fue entregado<br>junto a la <em style="color:#5B8CFF;font-style:italic;">landing page</em> para el cliente.
+  </p>
+  <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:10px;">Abriendo en un momento...</p>
+  <div id="vslNoticeBar" style="
+    height:2px;background:rgba(91,140,255,0.15);
+    border-radius:1px;margin-top:16px;overflow:hidden;
+  ">
+    <div id="vslNoticeProgress" style="
+      height:100%;width:0%;
+      background:linear-gradient(90deg,#5B8CFF,rgba(91,140,255,0.6));
+      border-radius:1px;transition:width 1.8s linear;
+    "></div>
+  </div>
+</div>
+<div id="vslNoticeOverlay" style="
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,0);
+  pointer-events:none;
+  transition:background 0.3s;
+"></div>
 
 <!-- VSL 3 MODAL - Zivo -->
 <div class="modal-overlay" id="vslModal3" onclick="closeVSL3(event)" style="z-index:1001;">
@@ -3007,8 +3074,40 @@
     document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
+
+  // VSL Notice before opening
+  function showVSLNotice(callback) {
+    const notice = document.getElementById('vslNotice');
+    const overlay = document.getElementById('vslNoticeOverlay');
+    const progress = document.getElementById('vslNoticeProgress');
+
+    // Show
+    notice.style.opacity = '1';
+    notice.style.transform = 'translate(-50%,-50%) scale(1)';
+    notice.style.pointerEvents = 'all';
+    overlay.style.background = 'rgba(0,0,0,0.5)';
+    overlay.style.pointerEvents = 'all';
+
+    // Start progress bar
+    setTimeout(() => { progress.style.width = '100%'; }, 50);
+
+    // After 2s, hide and open VSL
+    setTimeout(() => {
+      notice.style.opacity = '0';
+      notice.style.transform = 'translate(-50%,-60%) scale(0.9)';
+      notice.style.pointerEvents = 'none';
+      overlay.style.background = 'rgba(0,0,0,0)';
+      overlay.style.pointerEvents = 'none';
+      progress.style.transition = 'none';
+      progress.style.width = '0%';
+      setTimeout(() => { progress.style.transition = 'width 1.8s linear'; }, 50);
+      callback();
+    }, 2000);
+  }
+
   const VSL2_URL = 'https://fluxi.com.co/clase1-organico?el=IGbio-clase';
-  function openVSL2() {
+  function openVSL2() { showVSLNotice(_openVSL2); }
+  function _openVSL2() {
     const modal = document.getElementById('vslModal2');
     const frame = document.getElementById('vslFrame2');
     frame.src = VSL2_URL;
@@ -3034,7 +3133,8 @@
   }
 
   const VSL3_URL = 'https://zivoconsulting.llc/';
-  function openVSL3() {
+  function openVSL3() { showVSLNotice(_openVSL3); }
+  function _openVSL3() {
     const modal = document.getElementById('vslModal3');
     const frame = document.getElementById('vslFrame3');
     frame.src = VSL3_URL;
@@ -3061,7 +3161,8 @@
 
   // VSL Modal
   const VSL_URL = 'https://www.elexperimentovalen.com/L1';
-  function openVSL() {
+  function openVSL() { showVSLNotice(_openVSL); }
+  function _openVSL() {
     const modal = document.getElementById('vslModal');
     const frame = document.getElementById('vslFrame');
     const fallback = document.getElementById('vslFallback');
