@@ -1797,11 +1797,10 @@
     document.getElementById('cat-' + cat).classList.add('active');
     event.target.classList.add('active');
 
-    // Re-trigger reveal animations for newly shown section
+    // Force all reveal elements visible immediately (IntersectionObserver misses hidden sections)
     const newSection = document.getElementById('cat-' + cat);
     newSection.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
-      el.classList.remove('visible');
-      setTimeout(() => observer.observe(el), 50);
+      el.classList.add('visible');
     });
 
     // Update description bar
