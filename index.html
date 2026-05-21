@@ -38,25 +38,7 @@
     cursor: none;
   }
 
-  #ytVideoWrap {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* default 16:9 */
-    background: #000;
-    overflow: hidden;
-  }
-  #ytVideoWrap.is-short {
-    padding-top: min(177.78%, 80vh);
-  }
-  #ytVideoWrap iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border: none;
-    display: block;
-  }
-
-
+  /* Custom cursor */
   .cursor {
     position: fixed;
     width: 10px;
@@ -445,18 +427,6 @@
     padding-bottom: 100px;
   }
   .cat-section.active { display: block; }
-  .cat-section.active .video-card {
-    animation: cardIn 0.45s ease forwards;
-  }
-  .cat-section.active .video-card:nth-child(1) { animation-delay: 0.0s; }
-  .cat-section.active .video-card:nth-child(2) { animation-delay: 0.08s; }
-  .cat-section.active .video-card:nth-child(3) { animation-delay: 0.16s; }
-  .cat-section.active .video-card:nth-child(4) { animation-delay: 0.24s; }
-  .cat-section.active .video-card:nth-child(5) { animation-delay: 0.32s; }
-  @keyframes cardIn {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
 
   .cat-intro {
     text-align: center;
@@ -955,46 +925,6 @@
   }
   .nav-links a:hover { color: var(--electric-coral); }
 
-  /* Uniform video card thumbnails — padding-top trick for bulletproof height */
-  .yt-short-wrap {
-    width: 100%;
-    padding-top: 177.78%; /* 16:9 inverted = 9/16 = 177.78% */
-    position: relative;
-    overflow: hidden;
-    background: #111;
-    cursor: pointer;
-    display: block;
-  }
-  .yt-short-wrap img,
-  .yt-short-wrap > div,
-  .yt-short-wrap > iframe {
-    position: absolute !important;
-    top: 0 !important; left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
-    border: none;
-  }
-  .yt-wide-wrap {
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 */
-    position: relative;
-    overflow: hidden;
-    background: #111;
-    cursor: pointer;
-    display: block;
-  }
-  .yt-wide-wrap img,
-  .yt-wide-wrap > div,
-  .yt-wide-wrap > iframe {
-    position: absolute !important;
-    top: 0 !important; left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
-    border: none;
-  }
-
   @media (max-width: 768px) {
     #about { grid-template-columns: 1fr; gap: 50px; }
     .nav-links { display: none; }
@@ -1037,7 +967,8 @@
   <ul class="nav-links">
     <li><a href="#about">Sobre mí</a></li>
     <li><a href="#portfolio">Portafolio</a></li>
-        <li><a href="#contact">Contacto</a></li>
+    <li><a href="#clients">Clientes</a></li>
+    <li><a href="#contact">Contacto</a></li>
   </ul>
 </nav>
 
@@ -1115,12 +1046,12 @@
 
   <!-- CORPORATIVA VSL -->
   <div class="cat-section active" id="cat-corporativa">
-    <div class="cat-intro">
+    <div class="cat-intro reveal">
       <h3>Edición Corporativa &amp; VSL</h3>
       <p>Videos de ventas y comunicación empresarial que convierten y generan impacto.</p>
     </div>
     <div class="video-grid">
-      <div class="video-card" data-cat="corporativa" onclick="openVSL()">
+      <div class="video-card reveal stagger-1" data-cat="corporativa" onclick="openVSL()">
         <div class="video-thumb" style="position:relative;overflow:hidden;">
           <div class="video-thumb-placeholder" style="background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 50%, #16213e 100%); position:relative;">
             <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center;">
@@ -1137,7 +1068,7 @@
           <p class="video-desc">VSL de alto impacto — storytelling de ventas, hook irresistible y narrativa que convierte.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="corporativa" onclick="openVSL2()">
+      <div class="video-card reveal stagger-2" data-cat="corporativa" onclick="openVSL2()">
         <div class="video-thumb" style="position:relative;overflow:hidden;">
           <div class="video-thumb-placeholder" style="background: linear-gradient(135deg, #0a1628 0%, #0d2137 50%, #091e36 100%); position:relative;">
             <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center;">
@@ -1154,7 +1085,7 @@
           <p class="video-desc">VSL educativo con narrativa de autoridad, IA como protagonista y conversión masiva.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="corporativa" onclick="openVSL3()">
+      <div class="video-card reveal stagger-3" data-cat="corporativa" onclick="openVSL3()">
         <div class="video-thumb" style="position:relative;overflow:hidden;">
           <div class="video-thumb-placeholder" style="background: linear-gradient(135deg, #0f0c00 0%, #1a1500 50%, #0f0c00 100%); position:relative;">
             <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center;">
@@ -1176,80 +1107,76 @@
 
   <!-- IA -->
   <div class="cat-section" id="cat-ia">
-    <div class="cat-intro">
+    <div class="cat-intro reveal">
       <h3>Edición IA</h3>
       <p>Contenido potenciado con inteligencia artificial, efectos generativos y workflows modernos.</p>
     </div>
     <div class="video-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
-      <div class="video-card" data-cat="ia">
-        <div class="yt-short-wrap" id="yt-XO5EMBv7-M4" onclick="loadYT('XO5EMBv7-M4')">
- <img src="https://i.ytimg.com/vi/XO5EMBv7-M4/hqdefault.jpg" 
- onerror="this.src='https://i.ytimg.com/vi/XO5EMBv7-M4/mqdefault.jpg'"
- alt="Video thumbnail">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
- </div>
+      <div class="video-card reveal stagger-1" data-cat="ia">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt-XO5EMBv7-M4" onclick="loadYT('XO5EMBv7-M4')">
+          <img src="https://i.ytimg.com/vi/XO5EMBv7-M4/hqdefault.jpg" 
+               onerror="this.src='https://i.ytimg.com/vi/XO5EMBv7-M4/mqdefault.jpg'"
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag" style="color:var(--electric-green);">Edición IA</span>
           <h4 class="video-title">IA Edit — 01</h4>
           <p class="video-desc">Producción con flujos de inteligencia artificial y efectos generativos.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="ia">
-        <div class="yt-short-wrap" id="yt-0LX26MeMwV4" onclick="loadYT('0LX26MeMwV4')">
- <img src="https://i.ytimg.com/vi/0LX26MeMwV4/hqdefault.jpg" 
- onerror="this.src='https://i.ytimg.com/vi/0LX26MeMwV4/mqdefault.jpg'"
- alt="Video thumbnail">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
- </div>
+      <div class="video-card reveal stagger-2" data-cat="ia">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt-0LX26MeMwV4" onclick="loadYT('0LX26MeMwV4')">
+          <img src="https://i.ytimg.com/vi/0LX26MeMwV4/hqdefault.jpg" 
+               onerror="this.src='https://i.ytimg.com/vi/0LX26MeMwV4/mqdefault.jpg'"
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag" style="color:var(--electric-green);">Edición IA</span>
           <h4 class="video-title">IA Edit — 02</h4>
           <p class="video-desc">Contenido generativo con postproducción avanzada y motion asistido por IA.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="ia">
+      <div class="video-card reveal stagger-3" data-cat="ia">
         <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:16/9;cursor:pointer;" class="yt-short-wrap" id="yt-zCHB3FlrpFI" onclick="loadYT('zCHB3FlrpFI','16/9')">
- <img src="https://i.ytimg.com/vi/zCHB3FlrpFI/hqdefault.jpg"
- alt="Video thumbnail">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube</div>
- </div>
+          <img src="https://i.ytimg.com/vi/zCHB3FlrpFI/hqdefault.jpg"
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube</div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag" style="color:var(--electric-green);">Edición IA</span>
           <h4 class="video-title">IA Edit — 03</h4>
           <p class="video-desc">Pieza IA con narrativa visual, subtitulado automático y ritmo de tendencia.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="ia">
-        <div class="yt-short-wrap" id="yt-UqI-Db6dx4A" onclick="loadYT('UqI-Db6dx4A')">
- <img src="https://i.ytimg.com/vi/UqI-Db6dx4A/hqdefault.jpg" 
- onerror="this.src='https://i.ytimg.com/vi/UqI-Db6dx4A/mqdefault.jpg'"
- alt="Video thumbnail">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
- </div>
+      <div class="video-card reveal stagger-4" data-cat="ia">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt-UqI-Db6dx4A" onclick="loadYT('UqI-Db6dx4A')">
+          <img src="https://i.ytimg.com/vi/UqI-Db6dx4A/hqdefault.jpg" 
+               onerror="this.src='https://i.ytimg.com/vi/UqI-Db6dx4A/mqdefault.jpg'"
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag" style="color:var(--electric-green);">Edición IA</span>
           <h4 class="video-title">IA Edit — 04</h4>
@@ -1261,62 +1188,59 @@
 
   <!-- VERTICAL -->
   <div class="cat-section" id="cat-vertical">
-    <div class="cat-intro">
+    <div class="cat-intro reveal">
       <h3>Edición Vertical</h3>
       <p>Contenido nativo para redes verticales: Reels, TikTok, Shorts. Ritmo, gancho y retención.</p>
     </div>
     <div class="video-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
-      <div class="video-card" data-cat="vertical">
-        <div class="yt-short-wrap" id="yt-BBpwOGizah0" onclick="loadYT('BBpwOGizah0')">
- <img src="https://i.ytimg.com/vi/BBpwOGizah0/hqdefault.jpg" 
- onerror="this.src='https://i.ytimg.com/vi/BBpwOGizah0/mqdefault.jpg'"
- alt="Video thumbnail">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
- </div>
+      <div class="video-card reveal stagger-1" data-cat="vertical">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt-BBpwOGizah0" onclick="loadYT('BBpwOGizah0')">
+          <img src="https://i.ytimg.com/vi/BBpwOGizah0/hqdefault.jpg" 
+               onerror="this.src='https://i.ytimg.com/vi/BBpwOGizah0/mqdefault.jpg'"
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag" style="color:var(--electric-gold);">Vertical</span>
           <h4 class="video-title">Reel — 01</h4>
           <p class="video-desc">Cuts rítmicos, texto animado y hook en los primeros 3 segundos.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="vertical">
-        <div class="yt-short-wrap" id="yt--QIVrJqBfOs" onclick="loadYT('-QIVrJqBfOs')">
- <img src="https://i.ytimg.com/vi/-QIVrJqBfOs/hqdefault.jpg" 
- onerror="this.src='https://i.ytimg.com/vi/-QIVrJqBfOs/mqdefault.jpg'"
- alt="Video thumbnail">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
- </div>
+      <div class="video-card reveal stagger-2" data-cat="vertical">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt--QIVrJqBfOs" onclick="loadYT('-QIVrJqBfOs')">
+          <img src="https://i.ytimg.com/vi/-QIVrJqBfOs/hqdefault.jpg" 
+               onerror="this.src='https://i.ytimg.com/vi/-QIVrJqBfOs/mqdefault.jpg'"
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag" style="color:var(--electric-gold);">Vertical</span>
           <h4 class="video-title">Reel — 02</h4>
           <p class="video-desc">Contenido vertical con pacing de tendencia y retención alta.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="vertical">
-        <div class="yt-short-wrap" id="yt-zrP30MFcWPk" onclick="loadYT('zrP30MFcWPk')">
- <img src="https://i.ytimg.com/vi/zrP30MFcWPk/hqdefault.jpg" 
- onerror="this.src='https://i.ytimg.com/vi/zrP30MFcWPk/mqdefault.jpg'"
- alt="Video thumbnail">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
- </div>
+      <div class="video-card reveal stagger-3" data-cat="vertical">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt-zrP30MFcWPk" onclick="loadYT('zrP30MFcWPk')">
+          <img src="https://i.ytimg.com/vi/zrP30MFcWPk/hqdefault.jpg" 
+               onerror="this.src='https://i.ytimg.com/vi/zrP30MFcWPk/mqdefault.jpg'"
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag" style="color:var(--electric-gold);">Vertical</span>
           <h4 class="video-title">Reel — 03</h4>
@@ -1324,58 +1248,55 @@
         </div>
       </div>
       <!-- YouTube Short embed -->
-      <div class="video-card" data-cat="vertical">
-        <div class="yt-short-wrap" style="max-height:520px;">
- <div style="position:absolute;inset:0;cursor:pointer;" id="yt-3UP5_wucKIM" onclick="loadYT('3UP5_wucKIM','9/16')">
- <img src="https://i.ytimg.com/vi/3UP5_wucKIM/hqdefault.jpg"
- alt="Video thumbnail">
- <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
- </div>
- </div>
+      <div class="video-card reveal stagger-4" data-cat="vertical">
+        <div style="background:#000;overflow:hidden;aspect-ratio:9/16;max-height:520px;position:relative;">
+          <div style="position:absolute;inset:0;cursor:pointer;" id="yt-3UP5_wucKIM" onclick="loadYT('3UP5_wucKIM','9/16')">
+          <img src="https://i.ytimg.com/vi/3UP5_wucKIM/hqdefault.jpg"
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
+        </div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag" style="color:var(--electric-gold);">YouTube Short</span>
           <h4 class="video-title">Short — 04</h4>
           <p class="video-desc">YouTube Short con color grading y edición de alto impacto.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="vertical">
-        <div class="yt-short-wrap" id="yt-K6GmqgjuGKM" onclick="loadYT('K6GmqgjuGKM')">
- <img src="https://i.ytimg.com/vi/K6GmqgjuGKM/hqdefault.jpg" 
- onerror="this.src='https://i.ytimg.com/vi/K6GmqgjuGKM/mqdefault.jpg'"
- alt="Video thumbnail">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
- </div>
+      <div class="video-card reveal stagger-5" data-cat="vertical">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt-K6GmqgjuGKM" onclick="loadYT('K6GmqgjuGKM')">
+          <img src="https://i.ytimg.com/vi/K6GmqgjuGKM/hqdefault.jpg" 
+               onerror="this.src='https://i.ytimg.com/vi/K6GmqgjuGKM/mqdefault.jpg'"
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag" style="color:var(--electric-gold);">YouTube Short</span>
           <h4 class="video-title">Short — 05</h4>
           <p class="video-desc">Reel con ritmo musical sincronizado y efectos de transición fluidos.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="vertical">
-        <div class="yt-short-wrap" id="yt-wFM0WOEUPeY" onclick="loadYT('wFM0WOEUPeY')">
- <img src="https://i.ytimg.com/vi/wFM0WOEUPeY/hqdefault.jpg" 
- onerror="this.src='https://i.ytimg.com/vi/wFM0WOEUPeY/mqdefault.jpg'"
- alt="Video thumbnail">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
- </div>
+      <div class="video-card reveal stagger-1" data-cat="vertical">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt-wFM0WOEUPeY" onclick="loadYT('wFM0WOEUPeY')">
+          <img src="https://i.ytimg.com/vi/wFM0WOEUPeY/hqdefault.jpg" 
+               onerror="this.src='https://i.ytimg.com/vi/wFM0WOEUPeY/mqdefault.jpg'"
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag" style="color:var(--electric-gold);">YouTube Short</span>
           <h4 class="video-title">Short — 06</h4>
@@ -1387,62 +1308,59 @@
 
   <!-- ADS VERTICAL -->
   <div class="cat-section" id="cat-ads">
-    <div class="cat-intro">
+    <div class="cat-intro reveal">
       <h3>Ads Vertical</h3>
       <p>Publicidad de alto rendimiento para Meta, TikTok y plataformas de pago. ROAS primero.</p>
     </div>
     <div class="video-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
-      <div class="video-card" data-cat="ads">
-        <div class="yt-short-wrap" id="yt-r-B99GRlXqU" onclick="loadYT('r-B99GRlXqU')">
- <img src="https://i.ytimg.com/vi/r-B99GRlXqU/hqdefault.jpg" 
- onerror="this.src='https://i.ytimg.com/vi/r-B99GRlXqU/mqdefault.jpg'"
- alt="Video thumbnail">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
- </div>
+      <div class="video-card reveal stagger-1" data-cat="ads">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt-r-B99GRlXqU" onclick="loadYT('r-B99GRlXqU')">
+          <img src="https://i.ytimg.com/vi/r-B99GRlXqU/hqdefault.jpg" 
+               onerror="this.src='https://i.ytimg.com/vi/r-B99GRlXqU/mqdefault.jpg'"
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag">Ads Vertical</span>
           <h4 class="video-title">Ad Vertical — 01</h4>
           <p class="video-desc">Pieza publicitaria con hook directo, beneficio claro y CTA optimizado para conversión.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="ads">
-        <div class="yt-short-wrap" id="yt-WsyQCUxvMjs" onclick="loadYT('WsyQCUxvMjs')">
- <img src="https://i.ytimg.com/vi/WsyQCUxvMjs/hqdefault.jpg" 
- onerror="this.src='https://i.ytimg.com/vi/WsyQCUxvMjs/mqdefault.jpg'"
- alt="Video thumbnail">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
- </div>
+      <div class="video-card reveal stagger-2" data-cat="ads">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt-WsyQCUxvMjs" onclick="loadYT('WsyQCUxvMjs')">
+          <img src="https://i.ytimg.com/vi/WsyQCUxvMjs/hqdefault.jpg" 
+               onerror="this.src='https://i.ytimg.com/vi/WsyQCUxvMjs/mqdefault.jpg'"
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag">Ads Vertical</span>
           <h4 class="video-title">Ad Vertical — 02</h4>
           <p class="video-desc">Contenido publicitario vertical — formato nativo con storytelling de producto que convierte.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="ads">
-        <div class="yt-short-wrap" id="yt-b24r1Qzndw8" onclick="loadYT('b24r1Qzndw8')">
- <img src="https://i.ytimg.com/vi/b24r1Qzndw8/hqdefault.jpg" 
- onerror="this.src='https://i.ytimg.com/vi/b24r1Qzndw8/mqdefault.jpg'"
- alt="Video thumbnail">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
- </div>
+      <div class="video-card reveal stagger-3" data-cat="ads">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt-b24r1Qzndw8" onclick="loadYT('b24r1Qzndw8')">
+          <img src="https://i.ytimg.com/vi/b24r1Qzndw8/hqdefault.jpg" 
+               onerror="this.src='https://i.ytimg.com/vi/b24r1Qzndw8/mqdefault.jpg'"
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+              <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag">Ads Vertical</span>
           <h4 class="video-title">Ad Vertical — 03</h4>
@@ -1454,99 +1372,62 @@
 
   <!-- YOUTUBE -->
   <div class="cat-section" id="cat-youtube">
-    <div class="cat-intro">
+    <div class="cat-intro reveal">
       <h3>Formato YouTube</h3>
       <p>Videos long-form con ritmo, retención y edición que mantiene el watch time alto.</p>
     </div>
     <div class="video-grid">
-      <div class="video-card" data-cat="youtube">
-        <div class="yt-wide-wrap" id="yt-zmdlgDE3D5w" onclick="loadYT('zmdlgDE3D5w','16/9')">
- <img src="https://i.ytimg.com/vi/zmdlgDE3D5w/hqdefault.jpg" alt="YouTube — Proyecto 01">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(0,0,0,0.3);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.3)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube</div>
- </div>
+      <div class="video-card reveal stagger-1" data-cat="youtube" onclick="openModal('YouTube 01', 'Video largo con estructura de retención, B-rolls y gráficos personalizados.', 'youtube')">
+        <div class="video-thumb">
+          <div class="video-thumb-placeholder">YouTube 01</div>
+          <div class="play-overlay"><div class="play-btn-ring"><div class="play-icon"></div></div></div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag">YouTube</span>
           <h4 class="video-title">YouTube — Proyecto 01</h4>
           <p class="video-desc">Long-form con estructura de retención, B-rolls y capítulos para SEO.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="youtube">
-        <div class="yt-wide-wrap" id="yt-D3yAfWDqwEI" onclick="loadYT('D3yAfWDqwEI','16/9')">
- <img src="https://i.ytimg.com/vi/D3yAfWDqwEI/hqdefault.jpg" alt="YouTube — Proyecto 02">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(0,0,0,0.3);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.3)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube</div>
- </div>
+      <div class="video-card reveal stagger-2" data-cat="youtube" onclick="openModal('YouTube 02', 'Documental corto con entrevistas y edición narrativa.', 'youtube')">
+        <div class="video-thumb">
+          <div class="video-thumb-placeholder">YouTube 02</div>
+          <div class="play-overlay"><div class="play-btn-ring"><div class="play-icon"></div></div></div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag">YouTube</span>
           <h4 class="video-title">YouTube — Proyecto 02</h4>
           <p class="video-desc">Mini-documental con entrevistas, color grading cinemático y sonido mixeado.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="youtube">
-        <div class="yt-wide-wrap" id="yt-2zAiy7z5PHs" onclick="loadYT('2zAiy7z5PHs','16/9')">
- <img src="https://i.ytimg.com/vi/2zAiy7z5PHs/hqdefault.jpg" alt="YouTube — Proyecto 03">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(0,0,0,0.3);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.3)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube</div>
- </div>
+      <div class="video-card reveal stagger-3" data-cat="youtube" onclick="openModal('YouTube 03', 'Video de estilo podcast editado con cortes rápidos y motion graphics.', 'youtube')">
+        <div class="video-thumb">
+          <div class="video-thumb-placeholder">YouTube 03</div>
+          <div class="play-overlay"><div class="play-btn-ring"><div class="play-icon"></div></div></div>
+        </div>
         <div class="video-card-body">
           <span class="video-cat-tag">YouTube</span>
           <h4 class="video-title">YouTube — Proyecto 03</h4>
           <p class="video-desc">Podcast editado con jump cuts, motion graphics y efecto de presencia en pantalla.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="youtube">
-        <div class="yt-wide-wrap" id="yt-R6F5QK1jGFw" onclick="loadYT('R6F5QK1jGFw','16/9')">
- <img src="https://i.ytimg.com/vi/R6F5QK1jGFw/hqdefault.jpg" alt="YouTube — Proyecto 04">
- <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(0,0,0,0.3);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.3)'">
- <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
- <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
- </div>
- <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;">Ver en YouTube ↗</div>
- </div>
- <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube</div>
- </div>
-        <div class="video-card-body">
-          <span class="video-cat-tag">YouTube</span>
-          <h4 class="video-title">YouTube — Proyecto 04</h4>
-          <p class="video-desc">Video long-form con ritmo de alto watch time y edición narrativa.</p>
-        </div>
-      </div>
-
   <!-- MARCA PERSONAL -->
   <div class="cat-section" id="cat-marca">
-    <div class="cat-intro">
+    <div class="cat-intro reveal">
       <h3>Marca Personal</h3>
       <p>Mi propio proyecto de contenido — donde mezclo análisis, creatividad y storytelling auténtico.</p>
     </div>
-        <div class="video-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-      <div class="video-card" data-cat="marca">
-        <div class="yt-short-wrap" id="yt-nVWhG-vyn8w" onclick="loadYT('nVWhG-vyn8w')">
-          <img src="https://i.ytimg.com/vi/nVWhG-vyn8w/hqdefault.jpg"
+    <div class="video-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+      <div class="video-card reveal stagger-1" data-cat="marca">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt-nVWhG-vyn8w" onclick="loadYT('nVWhG-vyn8w')">
+          <img src="https://i.ytimg.com/vi/nVWhG-vyn8w/hqdefault.jpg" 
                onerror="this.src='https://i.ytimg.com/vi/nVWhG-vyn8w/mqdefault.jpg'"
-               alt="Contenido — 01">
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
             <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
               <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
             </div>
-            <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;">Ver en YouTube ↗</div>
           </div>
-          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">Short</div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
         </div>
         <div class="video-card-body">
           <span class="video-cat-tag" style="color:#8B5CF6;">Marca Personal</span>
@@ -1554,18 +1435,17 @@
           <p class="video-desc">Proyecto propio donde combino creatividad, análisis y narrativa personal.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="marca">
-        <div class="yt-short-wrap" id="yt-WDsfNZXqv0k" onclick="loadYT('WDsfNZXqv0k')">
-          <img src="https://i.ytimg.com/vi/WDsfNZXqv0k/hqdefault.jpg"
+      <div class="video-card reveal stagger-2" data-cat="marca">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt-WDsfNZXqv0k" onclick="loadYT('WDsfNZXqv0k')">
+          <img src="https://i.ytimg.com/vi/WDsfNZXqv0k/hqdefault.jpg" 
                onerror="this.src='https://i.ytimg.com/vi/WDsfNZXqv0k/mqdefault.jpg'"
-               alt="Contenido — 02">
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
             <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
               <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
             </div>
-            <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;">Ver en YouTube ↗</div>
           </div>
-          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">Short</div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
         </div>
         <div class="video-card-body">
           <span class="video-cat-tag" style="color:#8B5CF6;">Marca Personal</span>
@@ -1573,18 +1453,17 @@
           <p class="video-desc">Edición con perspectiva estratégica — datos, storytelling y estética unificados.</p>
         </div>
       </div>
-      <div class="video-card" data-cat="marca">
-        <div class="yt-short-wrap" id="yt-HRNNZFSe1jw" onclick="loadYT('HRNNZFSe1jw')">
-          <img src="https://i.ytimg.com/vi/HRNNZFSe1jw/hqdefault.jpg"
+      <div class="video-card reveal stagger-3" data-cat="marca">
+        <div style="background:#000;overflow:hidden;position:relative;aspect-ratio:9/16;cursor:pointer;" class="yt-short-wrap" id="yt-HRNNZFSe1jw" onclick="loadYT('HRNNZFSe1jw')">
+          <img src="https://i.ytimg.com/vi/HRNNZFSe1jw/hqdefault.jpg" 
                onerror="this.src='https://i.ytimg.com/vi/HRNNZFSe1jw/mqdefault.jpg'"
-               alt="Contenido — 03">
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.55)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
+               style="width:100%;height:100%;object-fit:cover;display:block;" alt="Video thumbnail">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.35)'">
             <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.5);">
               <div style="width:0;height:0;border-style:solid;border-width:12px 0 12px 22px;border-color:transparent transparent transparent white;margin-left:4px;"></div>
             </div>
-            <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);padding:5px 14px;border-radius:100px;">Ver en YouTube ↗</div>
           </div>
-          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">Short</div>
+          <div style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.7);color:white;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;border-radius:2px;">YouTube Short</div>
         </div>
         <div class="video-card-body">
           <span class="video-cat-tag" style="color:#8B5CF6;">Marca Personal</span>
@@ -1592,6 +1471,53 @@
           <p class="video-desc">Contenido auténtico que mezcla visión analítica con ejecución creativa.</p>
         </div>
       </div>
+      <div class="video-card reveal stagger-4" data-cat="marca">
+        <div style="background:#fafafa;overflow:hidden;min-height:480px;display:flex;align-items:center;justify-content:center;">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DVCNomqAVpK/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;margin:0;max-width:100%;min-width:100%;width:100%;"></blockquote>
+        </div>
+        <div class="video-card-body">
+          <span class="video-cat-tag" style="color:#8B5CF6;">Marca Personal</span>
+          <h4 class="video-title">Contenido — 04</h4>
+          <p class="video-desc">KPIs, estadística y creatividad: mi forma de entender el contenido que funciona.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="clients">
+  <span class="clients-label reveal">Experiencia</span>
+  <h2 class="clients-headline reveal">Marcas que han <em>confiado</em><br>en mi trabajo</h2>
+
+  <div class="clients-grid">
+    <div class="client-box reveal stagger-1">
+      <div class="client-icon" style="background: rgba(255,209,0,0.12);">🏢</div>
+      <span class="client-name">Cliente A</span>
+      <span class="client-type">Corporativo</span>
+    </div>
+    <div class="client-box reveal stagger-2">
+      <div class="client-icon" style="background: rgba(0,232,122,0.12);">🚀</div>
+      <span class="client-name">Cliente B</span>
+      <span class="client-type">Startup</span>
+    </div>
+    <div class="client-box reveal stagger-3">
+      <div class="client-icon" style="background: rgba(255,77,61,0.12);">🎯</div>
+      <span class="client-name">Cliente C</span>
+      <span class="client-type">E-Commerce</span>
+    </div>
+    <div class="client-box reveal stagger-4">
+      <div class="client-icon" style="background: rgba(0,87,255,0.12);">📱</div>
+      <span class="client-name">Cliente D</span>
+      <span class="client-type">Redes Sociales</span>
+    </div>
+    <div class="client-box reveal stagger-5">
+      <div class="client-icon" style="background: rgba(139,92,246,0.12);">🎬</div>
+      <span class="client-name">Cliente E</span>
+      <span class="client-type">Contenido Digital</span>
+    </div>
+    <div class="client-box reveal stagger-1">
+      <div class="client-icon" style="background: rgba(255,209,0,0.12);">🌿</div>
+      <span class="client-name">Cliente F</span>
+      <span class="client-type">Marca Personal</span>
     </div>
   </div>
 </section>
@@ -1757,37 +1683,13 @@
 
 <script>
 
-  // YouTube: play in modal with embed
   function loadYT(id, ratio) {
-    var isShort = !ratio || ratio === '9/16';
-    var modal = document.getElementById('ytModal');
-    var frame = document.getElementById('ytFrame');
-    var wrap = document.getElementById('ytVideoWrap');
-    var link = document.getElementById('ytExternalLink');
-
-    // Set aspect ratio via class
-    wrap.classList.toggle('is-short', isShort);
-
-    // Build embed URL with autoplay
-    frame.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
-
-    // External link fallback
-    var extUrl = isShort
-      ? 'https://www.youtube.com/shorts/' + id
-      : 'https://www.youtube.com/watch?v=' + id;
-    link.href = extUrl;
-
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeYTModal(event, force) {
-    var modal = document.getElementById('ytModal');
-    if (force || !event || event.target === modal) {
-      modal.classList.remove('open');
-      document.getElementById('ytFrame').src = '';
-      document.body.style.overflow = '';
-    }
+    var r = ratio || '9/16';
+    var el = document.getElementById('yt-' + id);
+    if (!el) return;
+    el.style.cursor = 'default';
+    el.onclick = null;
+    el.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" style="width:100%;height:100%;border:none;display:block;position:absolute;inset:0;" allow="autoplay;fullscreen" allowfullscreen></iframe>';
   }
 
   // Custom cursor
@@ -1855,10 +1757,11 @@
     document.getElementById('cat-' + cat).classList.add('active');
     event.target.classList.add('active');
 
-    // Force all reveal elements visible immediately (IntersectionObserver misses hidden sections)
+    // Re-trigger reveal animations for newly shown section
     const newSection = document.getElementById('cat-' + cat);
     newSection.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
-      el.classList.add('visible');
+      el.classList.remove('visible');
+      setTimeout(() => observer.observe(el), 50);
     });
 
     // Update description bar
@@ -1979,28 +1882,9 @@
   }
 
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') { closeModal(null, true); closeVSL(null, true); closeVSL2(null, true); closeVSL3(null, true); closeYTModal(null, true); }
+    if (e.key === 'Escape') { closeModal(null, true); closeVSL(null, true); closeVSL2(null, true); closeVSL3(null, true); }
   });
 </script>
-<!-- YOUTUBE MODAL -->
-<div class="modal-overlay" id="ytModal" onclick="closeYTModal(event)" style="z-index:1002;">
-  <div class="modal-box" style="max-width:980px;background:#0a0a0a;position:relative;">
-    <button class="modal-close" onclick="closeYTModal(null,true)">✕</button>
-    <div id="ytVideoWrap">
-      <iframe
-        id="ytFrame"
-        src=""
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-    <div class="modal-info" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:20px 28px;">
-      <p style="font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:0.1em;">Reproduciendo en YouTube</p>
-      <a id="ytExternalLink" href="#" target="_blank" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:2px;white-space:nowrap;">Abrir en YouTube ↗</a>
-    </div>
-  </div>
-</div>
-
 <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
